@@ -2,12 +2,25 @@ import java.util.*;
 
 public class mainClass {
 
-    public static Scanner scan = new Scanner(System.in);
-
     public static void main(String[] args) {
 
+        programController pC = new programController();
+        pC.start();
+
+    }
+}
+
+class programController {
+    private Scanner in;
+
+    programController() {
+        this.in = new Scanner(System.in);
+    }
+
+    public void start() {
+
         // creating our menu
-        menu mainMenu = new menu(scan);
+        menu mainMenu = new menu(in);
 
         // set input variable for validation
         String input = "0";
@@ -20,12 +33,10 @@ public class mainClass {
             input = mainMenu.getInput();
             // take input and perform action
             mainMenu.menuController(input);
-
         }
-
-
     }
 }
+
 
 class menu {
 
